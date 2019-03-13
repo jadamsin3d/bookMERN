@@ -1,12 +1,11 @@
-import axios from "axios";
+// import axios from "axios";
 
-export default {
-  // Gets all books
-  getBooks: function(query) {
-    return axios.get("/api/books", {params: {q: query}});
-  }
-};
-
+// export default {
+//   // Gets all books
+//   getBooks: function(query) {
+//     return axios.get("/api/books", {params: {q: query}});
+//   }
+// };
 
   // // Gets the book with the given id
   // getBook: function(id) {
