@@ -14,10 +14,11 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
-// app.use("/api", routes);
+app.use(routes);
 
 // connect to mongoose
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
+console.log("connected to Mongo database!")
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

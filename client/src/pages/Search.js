@@ -1,23 +1,19 @@
 import React, { Component } from 'react';
 import Jumbotron from '../components/Jumbotron/Jumbotron';
 import { Input, FormBtn } from '../components/SearchForm/SearchForm';
+import Books from '../components/Books/Books';
 import axios from 'axios'
-import Books from '../pages/'
+
 
 class Search extends Component {
 	state = {
-		books: {},
-		title: '',
-		author: '',
-		descrip: '',
-		imgURL: '',
-		link: '',
-		items: []
+		books: []
 	};
 
 	constructor() {
 		super();
 		this.handleInputChange = this.handleInputChange.bind(this);
+		this.handleFormSubmit = this.handleFormSubmit.bind(this);
 	}
 
 	handleInputChange = (event) => {
@@ -34,14 +30,21 @@ class Search extends Component {
       url: 'https://www.googleapis.com/books/v1/volumes?q=' + this.state.title
     }).then((response) => {
       this.setState({books: response.data.items}, () => {
-        console.log(this.state);
+				console.log(this.state);
       })
     }).catch((error) => {
       console.log(error);
     });
-  }
+	}
 
-	render() {
+	saveBook = event => {
+		
+	}
+
+	render() { 
+
+		const bookList = this.state.books.map(item => <Books key={item.id} item={item} onClick={this.saveBook}/>)
+
 		return (
 			<div className="container">
 				<div className="row">
@@ -70,7 +73,7 @@ class Search extends Component {
 
 				<div className="row">
 					<div className="col-lg-12">
-						<Books books={this.state.books}/>
+						{bookList}
 					</div>
 				</div>
 			</div>
