@@ -37,13 +37,14 @@ class Search extends Component {
     });
 	}
 
-	saveBook = event => {
+	saveBook = (id) => {
+		console.log("hello", id)
 		
 	}
 
 	render() { 
 
-		const bookList = this.state.books.map(item => <Books key={item.id} item={item} onClick={this.saveBook}/>)
+		const bookList = this.state.books.map(item => <Books key={item.id} item={item} saveBook={this.saveBook}/>)
 
 		return (
 			<div className="container">
