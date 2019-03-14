@@ -13,8 +13,8 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Define API routes here
-app.use(routes);
+// // Define API routes here
+// app.use(routes);
 
 // connect to mongoose
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
