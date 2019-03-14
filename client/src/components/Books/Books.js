@@ -3,7 +3,7 @@ import React from "react"
 function Books(props) {
     return(
         <div className="bookItem">
-            {/* <img src={props.item.volumeInfo.imageLinks.thumbnail} /> */}
+            <img src={props.item.volumeInfo.imageLinks.thumbnail} />
             <h3>{props.item.volumeInfo.title}</h3>
             <p>{props.item.volumeInfo.authors}</p>
             <p>{props.item.volumeInfo.description}</p>
